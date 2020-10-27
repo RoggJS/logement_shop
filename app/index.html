@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="libs/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" href="libs/slick/slick.css">
     <link rel="stylesheet" href="libs/slick/slick-theme.css">
+    <link rel="stylesheet" href="libs/cart/jqcart.css">
+    <link rel="stylesheet" href="libs/cart/style.css">
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body>
@@ -31,7 +33,7 @@
             </ul>
             <div class="header-cart-area">
                 <a href="#" class="mail-icon"><img src="img/mail.svg" alt=""></a>
-                <a href="#" class="cart-icon"><img src="img/cart.svg" alt=""></a>
+                <a href="#" class="cart-icon cart-open"><img src="img/cart.svg" alt=""></a>
                 <div class="menu__icon">
                     <span></span>
                     <span></span>
@@ -88,10 +90,12 @@
                                     1.099 ₽
                                 </div>
 
-                                <a href="#" class="custom-button item-card__button">
+                                <a href="#" class="custom-button item-card__button add_item" data-id="1" data-title="ЛОЖЕМЕНТ Д46" data-price="1099" data-img="img/item-1.png" data-count="10">
                                     <img src="img/feather_shopping-cart.svg" alt="cart">  В корзину
                                 </a>
                             </div>
+
+
 
                         </div>
                     </div>
@@ -114,7 +118,7 @@
                                     1.099 ₽
                                 </div>
 
-                                <a href="#" class="custom-button item-card__button">
+                                <a href="#" class="custom-button item-card__button add_item" data-id="2" data-title="ЛОЖЕМЕНТ Д426" data-price="1099" data-img="img/item-2.png" data-count="20">
                                     <img src="img/feather_shopping-cart.svg" alt="cart">  В корзину
                                 </a>
                             </div>
@@ -142,7 +146,7 @@
                                     1.099 ₽
                                 </div>
 
-                                <a href="#" class="custom-button item-card__button">
+                                <a href="#" class="custom-button item-card__button add_item"  data-id="3" data-title="ЛОЖЕМЕНТ Д426" data-price="1099" data-img="img/item-3.png" data-count="2">
                                     <img src="img/feather_shopping-cart.svg" alt="cart">  В корзину
                                 </a>
                             </div>
@@ -158,13 +162,38 @@
     </div>
 </section>
 
+<div class="label-place"></div>
+<p>
+    <button id="clear">Очистить корзину (вызов метода clearCart)</button>
+</p>
 
 
 <script src="js/jquery.min.js"></script>
 <script src="libs/fancybox/jquery.fancybox.min.js"></script>
 <script src="libs/slick/slick.min.js"></script>
+<script src="libs/cart/jqcart.js"></script>
 <script src="js/custom.js"></script>
-
+<script>
+    $(function(){
+        'use strict';
+        // инициализация плагина
+        $.jqCart({
+            buttons: '.add_item',
+            handler: './php/handler.php',
+            cartLabel: '.cart-open',
+            visibleLabel: true,
+            openByAdding: false,
+            currency: '₽'
+        });
+        // Пример с дополнительными методами
+        $('.cart-open').click(function(){
+            $.jqCart('openCart'); // открыть корзину
+        });
+        $('#clear').click(function(){
+            $.jqCart('clearCart'); // очистить корзину
+        });
+    });
+</script>
 
 </body>
 </html>

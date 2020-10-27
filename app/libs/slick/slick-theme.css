@@ -63,7 +63,7 @@
 .slick-prev
 {
     transition: all ease-in .3s;
-    z-index: 999;
+    z-index: 9;
     left: -35px;
     width: 50px;
     border-radius: 100%;
@@ -93,8 +93,8 @@
 .slick-next
 {
     transition: all ease-in .3s;
-    z-index: 999;
-    right: -55px;
+    z-index: 9;
+    right: -35px;
     height: 50px;
     width: 50px;
     border-radius: 100%;
