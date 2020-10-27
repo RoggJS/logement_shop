@@ -32,18 +32,16 @@ body
 .menu__icon
     width: 24px
     height: 24px
-    position: absolute
-    right: 15px
+    position: relative
     cursor: pointer
     margin-right: 0
-    top: 23px
     z-index: 999
     display: none
 .menu__icon > span
     width: 23px
     height: 2px
     display: block
-    background-color: #fff
+    background-color: $accent
     position: absolute
     transition: all 0.25s ease-in-out
 .menu__icon span:nth-child(1)
@@ -57,14 +55,110 @@ body
 .menu__icon.active span:nth-child(2)
     transform: rotate(45deg)
     top: 14px
-    background-color: $yellow
+    background-color: $red
 .menu__icon.active span:nth-child(3)
     transform: rotate(-45deg)
     top: 14px
-    background-color: $yellow
+    background-color: $red
 
+.header-menu
+    margin:  0
+    padding: 0
+    list-style-type: none
+    & li
+        display: inline-block
+        margin: 0 30px
+        & a
+            font-size: 16px
+            color: $text
+            transition: all ease .3s
+            display: block
+            &:after
+                content: ''
+                display: block
+                width: 28px
+                margin: 5px auto 0
+                height: 1px
+                background: transparent
+                transition: all ease .3s
+            &:hover
+                text-decoration: none
+                color: #395270
+                transition: all ease .3s
+                text-shadow: 1px -1px 0px rgba(57, 82, 112, 1)
+            &:hover:after
+                    background: $red
+                    transition: all ease .3s
+.header-cart-area
+    display: flex
+    align-items: center
+.cart-icon
+    position: relative
+    margin-left: 30px
+.header-menu-row
+    margin: 0
+    display: flex
+    align-items: center
+    justify-content: space-between
 
+.header-section
+    background: linear-gradient(180deg, #E3ECF3 0%, rgba(227, 236, 243, 0) 100%), url("../img/tools.png")no-repeat 13% 45px, url("../img/right-cover.svg")no-repeat right 196px
+    min-height: 767px
+    padding-top: 15px
+.header-banner__title
+    font-family: Montserrat, sans-serif
+    font-weight: 800
+    margin-top: 140px
+    font-size: 46px
+    & span
+        display: block
+        font-family: 'Open Sans',sans-serif
+        font-style: normal
+        font-weight: bold
+        font-size: 14px
+        padding-bottom: 25px
+        letter-spacing: 0.59em
+        color: #395270
+.header-banner__subtitle
+    margin-top: 30px
+.custom-button
+    background: $accent
+    border-radius: 5px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-weight: 700
+    font-size: 16px
+    text-align: center
+    color: #FFFFFF
+    width: 200px
+    height: 45px
+    border: 0
+    transition: all ease-in .3s
+    &:hover
+        transition: all ease-in .3s
+        box-shadow: 0 3px 12px 0 rgba(0,0,0,0.36)
+        transform: scale(1.03)
+        color: #ffffff
+        text-decoration: none
 
-
-
+.custom-button.red-button
+    background: $red
+.header-banner-button
+    margin-top: 35px
+.header-banner__link-list
+    margin-top: 40px
+    & a
+        display: inline-block
+        font-family: 'pen Sans italic',sans-serif
+        font-style: italic
+        font-weight: normal
+        font-size: 19px
+        line-height: 126.12%
+        color: #395270
+        border-bottom: 1px dashed #395270
+        padding-bottom: 5px
+        margin-bottom: 10px
+        &:hover
+            text-decoration: none
 @import "media"
